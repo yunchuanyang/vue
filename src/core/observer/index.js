@@ -54,6 +54,7 @@ export class Observer {
         //把拦截器中重写的7个方法循环加入到value上
         copyAugment(value, arrayMethods, arrayKeys)
       }
+      //循环observer
       this.observeArray(value)
     } else {
       this.walk(value)
