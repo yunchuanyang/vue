@@ -57,6 +57,7 @@ export class Observer {
       //循环observer
       this.observeArray(value)
     } else {
+      //循环给value的属性添加set和get方法
       this.walk(value)
     }
   }
