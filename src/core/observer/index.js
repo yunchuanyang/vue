@@ -46,6 +46,8 @@ export class Observer {
     def(value, '__ob__', this)
     if (Array.isArray(value)) {
       if (hasProto) {
+        //arrayMethods拦截了array的7个方法，在其中做了notify
+        //将arrayMethods赋值给value._proto_
         protoAugment(value, arrayMethods)
       } else {
         copyAugment(value, arrayMethods, arrayKeys)
