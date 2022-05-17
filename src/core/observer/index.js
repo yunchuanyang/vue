@@ -41,15 +41,17 @@ export class Observer {
 
   constructor (value: any) {
     this.value = value
+    //创建一个依赖管理器实例
     this.dep = new Dep()
     this.vmCount = 0
     def(value, '__ob__', this)
     if (Array.isArray(value)) {
-      if (hasProto) {
+      if (hasProto) {//有的浏览器不支持_proto_
         //arrayMethods拦截了array的7个方法，在其中做了notify
         //将arrayMethods赋值给value._proto_
         protoAugment(value, arrayMethods)
       } else {
+        //把拦截器中重写的7个方法循环加入到value上
         copyAugment(value, arrayMethods, arrayKeys)
       }
       this.observeArray(value)
