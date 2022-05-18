@@ -166,7 +166,7 @@ export function defineReactive (
     configurable: true,
     get: function reactiveGetter () {
       const value = getter ? getter.call(obj) : val
-      //在get中收集依赖
+      //将observe实例上依赖管理器，把依赖收集起来
       if (Dep.target) {
         dep.depend()
         if (childOb) {
