@@ -70,11 +70,11 @@ export default class VNode {
     return this.componentInstance
   }
 }
-
+//创建注释节点：没有标签，只有注释信息text
 export const createEmptyVNode = (text: string = '') => {
   const node = new VNode()
   node.text = text
-  node.isComment = true
+  node.isComment = true     //标志为注释节点
   return node
 }
 
