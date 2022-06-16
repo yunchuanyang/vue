@@ -90,7 +90,7 @@ export function FunctionalRenderContext (
 }
 
 installRenderHelpers(FunctionalRenderContext.prototype)
-
+//函数式组件节点：除了具有组件节点的属性外，还有fnContext（函数式组件对应的VUE实例）和fnOptions（组件的option选项）
 export function createFunctionalComponent (
   Ctor: Class<Component>,
   propsData: ?Object,
