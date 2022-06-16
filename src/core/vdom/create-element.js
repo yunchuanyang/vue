@@ -25,6 +25,21 @@ const ALWAYS_NORMALIZE = 2
 
 // wrapper function for providing a more flexible interface
 // without getting yelled at by flow
+// 创建元素节点
+/**
+比如 真实DOM节点是<div id='a'><span>难凉热血</span></div>
+对应的元素节点是
+{
+  tag:'div',
+  data:{},
+  children:[
+    {
+      tag:'span',
+      text:'难凉热血'
+    }
+  ]
+}
+*/
 export function createElement (
   context: Component,
   tag: any,
