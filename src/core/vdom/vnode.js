@@ -87,6 +87,7 @@ export function createTextVNode (val: string | number) {
 // multiple renders, cloning them avoids errors when DOM manipulations rely
 // on their elm reference.
 //创建克隆节点：把一个已存在的节点复制一个出来，主要是模板编译优化时使用
+// 把已有节点的属性全部复制到新节点中去，唯一不同的是新节点isCloned属性是true
 export function cloneVNode (vnode: VNode): VNode {
   const cloned = new VNode(
     vnode.tag,
