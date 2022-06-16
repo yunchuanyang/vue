@@ -97,7 +97,7 @@ const componentVNodeHooks = {
 }
 
 const hooksToMerge = Object.keys(componentVNodeHooks)
-
+//组件节点，除了具有元素节点的属性，还有2个特有属性componentOptions（组件的options选项，如props等） 和componentInstance （当前组件节点对应的vue实例）
 export function createComponent (
   Ctor: Class<Component> | Function | Object | void,
   data: ?VNodeData,
@@ -204,7 +204,7 @@ export function createComponent (
 
   return vnode
 }
-
+//创建组件节点对应的实例
 export function createComponentInstanceForVnode (
   // we know it's MountedComponentVNode but flow doesn't
   vnode: any,
