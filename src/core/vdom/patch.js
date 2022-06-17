@@ -9,7 +9,11 @@
  * Not type-checking this because this file is perf-critical and the cost
  * of making flow understand it is not worth it.
  */
-
+/**
+1.插入节点
+2.删除节点
+3.更新节点
+*/ 
 import VNode, { cloneVNode } from './vnode'
 import config from '../config'
 import { SSR_ATTR } from 'shared/constants'
