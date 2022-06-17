@@ -99,11 +99,13 @@ export function createPatchFunction (backend) {
     remove.listeners = listeners
     return remove
   }
-
+//删除节点
   function removeNode (el) {
+    //获取父节点
     const parent = nodeOps.parentNode(el)
     // element may have already been removed due to v-html / v-text
     if (isDef(parent)) {
+      //调用父节点的removeChild方法
       nodeOps.removeChild(parent, el)
     }
   }
