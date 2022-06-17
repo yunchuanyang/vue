@@ -208,10 +208,12 @@ export function createPatchFunction (backend) {
     } else if (isTrue(vnode.isComment)) {
       //创建注释节点
       vnode.elm = nodeOps.createComment(vnode.text)
+      //把当前元素节点插入到dom中
       insert(parentElm, vnode.elm, refElm)
     } else {
       //创建文本节点
       vnode.elm = nodeOps.createTextNode(vnode.text)
+      //把当前元素节点插入到dom中
       insert(parentElm, vnode.elm, refElm)
     }
   }
