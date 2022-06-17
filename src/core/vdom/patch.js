@@ -125,7 +125,7 @@ export function createPatchFunction (backend) {
   }
 
   let creatingElmInVPre = 0
-
+//创建新节点
   function createElm (
     vnode,
     insertedVnodeQueue,
@@ -166,7 +166,7 @@ export function createPatchFunction (backend) {
           )
         }
       }
-
+      //创建元素节点
       vnode.elm = vnode.ns
         ? nodeOps.createElementNS(vnode.ns, tag)
         : nodeOps.createElement(tag, vnode)
@@ -184,6 +184,7 @@ export function createPatchFunction (backend) {
           }
           insert(parentElm, vnode.elm, refElm)
         }
+        //循环调用创建子节点并把子节点插入到当前元素节点中
         createChildren(vnode, children, insertedVnodeQueue)
         if (appendAsTree) {
           if (isDef(data)) {
@@ -192,10 +193,12 @@ export function createPatchFunction (backend) {
           insert(parentElm, vnode.elm, refElm)
         }
       } else {
+        //循环调用创建子节点并把子节点插入到当前元素节点中
         createChildren(vnode, children, insertedVnodeQueue)
         if (isDef(data)) {
           invokeCreateHooks(vnode, insertedVnodeQueue)
         }
+        //把当前元素节点插入到dom中
         insert(parentElm, vnode.elm, refElm)
       }
 
@@ -203,9 +206,11 @@ export function createPatchFunction (backend) {
         creatingElmInVPre--
       }
     } else if (isTrue(vnode.isComment)) {
+      //创建注释节点
       vnode.elm = nodeOps.createComment(vnode.text)
       insert(parentElm, vnode.elm, refElm)
     } else {
+      //创建文本节点
       vnode.elm = nodeOps.createTextNode(vnode.text)
       insert(parentElm, vnode.elm, refElm)
     }
